@@ -4568,8 +4568,8 @@ input[type='button'].btn-block {
 	position: static;
 	float: none;
 }
-.navbar-translate{
-	transform: translateY(-7.5px)
+.navbar-translate {
+	transform: translateY(-7.5px);
 }
 
 .navbar-text {
@@ -11592,6 +11592,8 @@ a.text-darker:focus {
 	transition: all 0.15s ease;
 	box-shadow: none;
 	color: #ffffff;
+	width: 150px;
+	margin: 5px;
 }
 .btn.animation-on-hover:hover,
 .navbar .navbar-nav > a.btn.animation-on-hover:hover {
@@ -13625,7 +13627,7 @@ fieldset[disabled] .btn-link.active {
 .bootstrap-select .dropdown-menu.inner li a:hover,
 .bootstrap-select .dropdown-menu.inner li a:focus {
 	background-color: rgba(2, 222, 222, 0.3);
-	color: #171941
+	color: #171941;
 }
 .dropdown-menu .dropdown-item.disabled,
 .dropdown-menu .dropdown-item:disabled,
@@ -13884,8 +13886,8 @@ fieldset[disabled] .btn-link.active {
 }
 
 @media screen and (max-width: 991px) {
-	.dropdown-toggle[aria-expanded='true']:after{
-		transform: rotate(180deg) translate(0)
+	.dropdown-toggle[aria-expanded='true']:after {
+		transform: rotate(180deg) translate(0);
 	}
 	.dropdown-toggle:after {
 		display: inline-block;
@@ -15813,6 +15815,7 @@ img {
 }
 .navbar.bg-info {
 	background-color: #1d8cf8 !important;
+	padding-bottom: 0px;
 }
 .navbar.bg-success {
 	background-color: #00bf9a !important;
@@ -16273,7 +16276,7 @@ img {
 }
 
 @media screen and (max-width: 991px) {
-	.dropdown-item:hover a{
+	.dropdown-item:hover a {
 		color: black;
 	}
 	.navbar .navbar-translate {
@@ -17518,11 +17521,10 @@ a[data-toggle='collapse'][aria-expanded='true'] .caret,
 	-webkit-transform: rotate(180deg);
 	-ms-transform: rotate(180deg);
 	transform: rotate(180deg) translateY(8px);
-
 }
 @media screen and (max-width: 991px) {
-	.dropdown-toggle[aria-expanded='true']:after{
-		transform: rotate(180deg) translate(0)
+	.dropdown-toggle[aria-expanded='true']:after {
+		transform: rotate(180deg) translate(0);
 	}
 }
 
@@ -24099,17 +24101,16 @@ td.rdtYear:hover {
 		position: static !important;
 		float: none;
 	}
-	.dropdown-item.container.social_icons a{
-	padding: 5px 10px;
-
-}
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus,
-.bootstrap-select .dropdown-menu.inner li a:hover,
-.bootstrap-select .dropdown-menu.inner li a:focus {
-	background-color: rgba(2, 222, 222, 0.3);
-	color: #171941;
-}
+	.dropdown-item.container.social_icons a {
+		padding: 5px 10px;
+	}
+	.dropdown-menu .dropdown-item:hover,
+	.dropdown-menu .dropdown-item:focus,
+	.bootstrap-select .dropdown-menu.inner li a:hover,
+	.bootstrap-select .dropdown-menu.inner li a:focus {
+		background-color: rgba(2, 222, 222, 0.3);
+		color: #171941;
+	}
 }
 
 .section-examples .container .col-sm-6 img {
@@ -24132,9 +24133,21 @@ td.rdtYear:hover {
 
 /*# sourceMappingURL=blk-design-system-react.css.map */
 .dropdown-item.container.social_icons {
-    justify-content: center;
-	background: rgba(0,0,0,0.1);
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.1);
 	padding: 5px;
-
 }
-
+.searchbox {
+	display: flex;
+	border: 0.1px solid white;
+	align-items: center;
+	width: 100%;
+	border-radius: 0.4285rem;
+}
+.searchbox input {
+	border: none;
+	font-size: 0.9rem;
+}
+.form-control::placeholder{
+	color: #dddddd;
+}

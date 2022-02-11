@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 import {
 	Button,
 	Collapse,
@@ -27,12 +26,18 @@ function LandingNavbar() {
 	const [collapseOut, setCollapseOut] = React.useState('');
 	const [color, setColor] = React.useState('navbar-transparent');
 	React.useEffect(() => {
-    document.body.classList.toggle("index-page");
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      document.body.classList.toggle("index-page");
-    };
-  },[]);
+		document.body.classList.toggle('index-page');
+		// Specify how to clean up after this effect:
+		return function cleanup() {
+			document.body.classList.toggle('index-page');
+		};
+	}, []);
+	React.useEffect(() => {
+		window.addEventListener('scroll', changeColor);
+		return function cleanup() {
+			window.removeEventListener('scroll', changeColor);
+		};
+	}, []);
 	const changeColor = () => {
 		if (
 			document.documentElement.scrollTop > 99 ||
@@ -56,17 +61,18 @@ function LandingNavbar() {
 	const onCollapseExited = () => {
 		setCollapseOut('');
 	};
-	
+
 	return (
 		<Navbar className={'fixed-top ' + color} color-on-scroll='100' expand='lg'>
 			<Container>
-              <div className='navbar-translate'>
+				<div className='navbar-translate'>
 					<NavbarBrand to='/' tag={Link} id='navbar-brand'>
 						<span>NFT-HUB </span>
 					</NavbarBrand>
 					<UncontrolledTooltip placement='bottom' target='navbar-brand'>
 						Create NFT at one click
 					</UncontrolledTooltip>
+
 					<button
 						aria-expanded={collapseOpen}
 						className='navbar-toggler navbar-toggler'
@@ -77,14 +83,15 @@ function LandingNavbar() {
 						<span className='navbar-toggler-bar bar3' />
 					</button>
 				</div>
-              <Collapse 
-			        className={'justify-content-end ' + collapseOut}
+
+				<Collapse
+					className={'justify-content-end ' + collapseOut}
 					navbar
 					isOpen={collapseOpen}
 					onExiting={onCollapseExiting}
 					onExited={onCollapseExited}
-					>
-						<div className='navbar-collapse-header'>
+				>
+					<div className='navbar-collapse-header'>
 						<Row>
 							<Col className='collapse-brand' xs='6'>
 								<a href='/' onClick={(e) => e.preventDefault()}>
@@ -102,20 +109,21 @@ function LandingNavbar() {
 							</Col>
 						</Row>
 					</div>
-                <Nav navbar>
-					
-                  <NavItem>
-                    <FormGroup className="searchbox">
-                        <Input defaultValue="" placeholder="Serch items" type="text" />
-                    </FormGroup>
-                  </NavItem>
-                  <NavItem className="active">
-                    <NavLink href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <i className="tim-icons icon-world" />
-                      Discover
-                    </NavLink>
-                  </NavItem>
-				  <UncontrolledDropdown nav>
+					<Nav navbar>
+						<NavItem>
+							<FormGroup className='searchbox'>
+								<i className='fa fa-search' style={{ marginLeft: '7.5px' }} />
+
+								<Input defaultValue='' placeholder='Serch items' type='text' />
+							</FormGroup>
+						</NavItem>
+						<NavItem className='active'>
+							<NavLink href='#pablo' onClick={(e) => e.preventDefault()}>
+								<i className='tim-icons icon-world' />
+								Discover
+							</NavLink>
+						</NavItem>
+						<UncontrolledDropdown nav>
 							<DropdownToggle
 								caret
 								color='default'
@@ -129,44 +137,42 @@ function LandingNavbar() {
 							</DropdownToggle>
 							<DropdownMenu className='dropdown-with-icons'>
 								<DropdownItem tag={Link} to='/create_upload'>
-									<i className='tim-icons icon-paper' />
+									<i className='tim-icons icon-upload' />
 									Create/Upload
 								</DropdownItem>
 								<DropdownItem tag={Link} to='/purchase'>
-									<i className='tim-icons icon-bullet-list-67' />
-									Register Page
+									<i className='tim-icons icon-money-coins' />
+									Purchase
 								</DropdownItem>
 								<DropdownItem tag={Container} className='social_icons'>
-								
-										<Link to='https://instagram.com' title='Follow on Insta'>
-											Insta
-										</Link>
-										<Link to='https://instagram.com' title='Follow on Insta'>
-											G
-										</Link>
-										<Link to='https://instagram.com' title='Follow on Insta'>
-											twi
-										</Link>
-										<Link to='https://instagram.com' title='Follow on Insta'>
-											you
-										</Link>
-							
+									<Link to='https://instagram.com' title='Follow on Insta'>
+										Insta
+									</Link>
+									<Link to='https://instagram.com' title='Follow on Insta'>
+										G
+									</Link>
+									<Link to='https://instagram.com' title='Follow on Insta'>
+										twi
+									</Link>
+									<Link to='https://instagram.com' title='Follow on Insta'>
+										you
+									</Link>
 								</DropdownItem>
 							</DropdownMenu>
 						</UncontrolledDropdown>
-                  <NavItem>
-                    <NavLink href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <i className="tim-icons icon-single-02" />
-                      Profile
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <i className="tim-icons icon-wallet-43" />
-                     Wallet
-                    </NavLink>
-                  </NavItem>
-				  {/* <NavItem className='p-0'>
+						<NavItem>
+							<NavLink href='#pablo' onClick={(e) => e.preventDefault()}>
+								<i className='tim-icons icon-single-02' />
+								Profile
+							</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href='#pablo' onClick={(e) => e.preventDefault()}>
+								<i className='tim-icons icon-wallet-43' />
+								Wallet
+							</NavLink>
+						</NavItem>
+						{/* <NavItem className='p-0'>
 							<NavLink
 								data-placement='bottom'
 								href='https://twitter.com/CreativeTim'
@@ -202,9 +208,9 @@ function LandingNavbar() {
 								<p className='d-lg-none d-xl-none'>Instagram</p>
 							</NavLink>
 						</NavItem> */}
-                </Nav>
-              </Collapse>
-            </Container>
+					</Nav>
+				</Collapse>
+			</Container>
 		</Navbar>
 	);
 }
