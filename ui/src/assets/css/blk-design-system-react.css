@@ -7094,7 +7094,7 @@ button.bg-darker:focus {
 }
 
 .d-none {
-	display: none !important;
+	font-size: 0.7rem;
 }
 
 .d-inline {
