@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
               Home
             </a>
           </Link>
-          <Link href='/create-item'>
+          <Link href='/create_item'>
             <a className='mr-6 text-pink-500'>
               Sell Digital Asset
             </a>
