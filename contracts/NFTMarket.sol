@@ -25,6 +25,7 @@ contract NFTMarket is ReentrancyGuard {
         address payable owner;
         uint256 price;
         bool sold;
+        uint256 likes;
     }
 
     mapping(uint256 => MarketItem) private idToMarketItem;
@@ -36,8 +37,10 @@ contract NFTMarket is ReentrancyGuard {
         address seller,
         address owner,
         uint256 price,
-        bool sold
+        bool sold,
+        uint256 likes
     );
+    
 
     function getListingPrice() public view returns (uint256) {
         return listingPrice;
@@ -61,7 +64,8 @@ contract NFTMarket is ReentrancyGuard {
             payable(msg.sender),
             payable(address(0)),
             price,
-            false
+            false,
+            0
         );
 
         IERC721(nftContract).transferFrom(msg.sender, address(this) , tokenId);
@@ -73,7 +77,8 @@ contract NFTMarket is ReentrancyGuard {
             msg.sender, 
             address(0),
             price, 
-            false
+            false,
+            0
         );
     }
 
@@ -156,6 +161,10 @@ contract NFTMarket is ReentrancyGuard {
             }
         }
         return items;
+    }
+
+    function increment_nft_likes(uint256 id) public {
+        idToMarketItem[id].likes +=1;
     }
 
 }
