@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreateUpload from './views/CreateUpload';
 import LandingPage from './views/LandingPage';
 import Purchase from './views/Purchase';
+import Profile from './views/Profile';
 import './assets/css/blk-design-system-react.css';
 // import "assets/css/blk-design-system-react.min.css";
 // import "assets/css/blk-design-system-react.css.map";
@@ -15,6 +16,7 @@ ReactDOM.render(
 			<Route path='' element={<LandingPage />} />
 			<Route path='create_upload' element={<CreateUpload />} />
 			<Route path='purchase' element={<Purchase />} />
+			<Route path='profile' element={<Profile />} />
 		</Routes>
 	</BrowserRouter>,
 	document.getElementById('root')

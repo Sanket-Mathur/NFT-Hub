@@ -161,10 +161,14 @@ function LandingNavbar() {
 							</DropdownMenu>
 						</UncontrolledDropdown>
 						<NavItem>
-							<NavLink href='#pablo' onClick={(e) => e.preventDefault()}>
+						
+							
+								<Link to='/profile' className='nav-link'>
 								<i className='tim-icons icon-single-02' />
 								Profile
-							</NavLink>
+								</Link>
+							
+						
 						</NavItem>
 						<NavItem>
 							<NavLink href='#pablo' onClick={(e) => e.preventDefault()}>

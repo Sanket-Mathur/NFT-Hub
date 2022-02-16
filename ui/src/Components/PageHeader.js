@@ -15,7 +15,7 @@ function PageHeader() {
 			<div className='squares square7' />
 			<Container>
 				<div className='content-center brand'>
-					<h1 className='h1-seo'>NFT Hub</h1>
+					<h1 className='h1-seo title_h1'>NFT Hub</h1>
 					<h3 className='d-none d-sm-block'>
 						Discover, collect, and sell extraordinary NFTs NFT Hub is the
 						greatest NFT marketplace
@@ -48,6 +48,9 @@ function PageHeader() {
 							</span>
 						</Button>
 					</Link>
+					<div className='scroll_field'>
+						<div className='scroll_icon'></div>
+					</div>
 				</div>
 			</Container>
 		</div>

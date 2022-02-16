@@ -7094,7 +7094,7 @@ button.bg-darker:focus {
 }
 
 .d-none {
-	font-size: 0.7rem;
+	font-size: 1.5rem;
 }
 
 .d-inline {
@@ -13977,9 +13977,8 @@ fieldset[disabled] .btn-link.active {
 }
 
 @media screen and (max-width: 576px) {
-	.footer {
-		text-align: center;
-	}
+	
+	
 	.footer .copyright {
 		text-align: center;
 	}
@@ -18551,6 +18550,9 @@ textarea.form-control:active {
 .index-page .page-header .container > .content-center.brand h3 span {
 	font-weight: 600;
 }
+.title_h1 {
+	font-size: 3rem;
+}
 .index-page .page-header .category-absolute {
 	position: absolute;
 	top: 100vh;
@@ -19039,11 +19041,11 @@ textarea.form-control:active {
 	}
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 	.info:first-of-type {
 		padding-top: 60%;
 	}
-}
+} */
 
 .progress-container {
 	position: relative;
@@ -19546,7 +19548,7 @@ a.badge-success.focus {
 .info {
 	max-width: 360px;
 	margin: 0 auto;
-	padding: 70px 0 30px;
+	padding: 30px 0 30px;
 }
 .info .icon {
 	color: #344675;
@@ -24097,6 +24099,13 @@ td.rdtYear:hover {
 }
 
 @media screen and (max-width: 991px) {
+	.title_h1 {
+		font-size: 2rem;
+	}
+
+	.d-none {
+		font-size: 0.7rem;
+	}
 	.navbar-nav .dropdown-menu {
 		position: static !important;
 		float: none;
@@ -24132,6 +24141,9 @@ td.rdtYear:hover {
 }
 
 /*# sourceMappingURL=blk-design-system-react.css.map */
+
+/* My custom Css that i am overidding for better */
+
 .dropdown-item.container.social_icons {
 	justify-content: center;
 	background: rgba(0, 0, 0, 0.1);
@@ -24148,6 +24160,106 @@ td.rdtYear:hover {
 	border: none;
 	font-size: 0.9rem;
 }
-.form-control::placeholder{
+.form-control::placeholder {
 	color: #dddddd;
+}
+.cardcontainer {
+	text-align: center;
+}
+.scroll_field {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transform: translateY(100px);
+}
+.scroll_icon {
+	width: 60px;
+	height: 60px;
+	border: 2px solid #aaa;
+	border-radius: 50%;
+	position: relative;
+	animation: down 1.5s infinite;
+	-webkit-animation: down 1.5s infinite;
+}
+
+.scroll_icon::before {
+	content: '';
+	position: absolute;
+	top: 15px;
+	left: 18px;
+	width: 18px;
+	height: 18px;
+	border-left: 2px solid #aaa;
+	border-bottom: 2px solid #aaa;
+	transform: rotate(-45deg);
+}
+
+@keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+@-webkit-keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+.all_NFT {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+	grid-gap: 10px;
+	padding: initial;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+.NFT {
+	width: inherit;
+	
+}
+.NFT .card{
+transition: 0.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+cursor: pointer;
+}
+.NFT .card:hover{
+	box-shadow: rgba(94, 114, 228,0.25) 0px 14px 28px,  rgba(94, 114, 228,0.2) 0px 10px 10px;
+	transform: translateY(-5px);
+}
+.path{
+	min-width: 60%;
+}
+.footer .nav-link:hover{
+	color: var(--primary);
+}
+
+/*  CSS for Create Upload Page */
+.content-center{
+	position: relative;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #ffffff;
+	padding: 0 15px;
+	width: 100%;
+	max-width: 880px;
 }
