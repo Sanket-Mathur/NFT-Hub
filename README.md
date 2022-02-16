@@ -23,3 +23,4 @@ Ther output from ```bash npx hardhat run scripts/deploy.js --network localhost `
   export const nftmarketaddress = 'address_of_deployed contract NFTMarket.sol'
 ```
 Note: The required address are given by ```npx hardhat run scripts/deploy.js --network localhost```
+
