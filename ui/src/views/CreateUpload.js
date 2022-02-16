@@ -1,11 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LandingNavbar from '../Components/LandingNavbar';
+import Footer from '../Components/Footer';
+import { Button } from 'reactstrap';
 
 function CreateUpload() {
 	return (
 		<div>
-			<h1>you can create and upload here</h1>
-			<Link to='../'>Back</Link>
+			<LandingNavbar />
+			<div className='wrapper'>
+				<div className='content-center '>
+					<Button color='danger' title='Create with one Click'>
+						Create
+					</Button>
+				</div>
+				<Footer />
+			</div>
 		</div>
 	);
 }
