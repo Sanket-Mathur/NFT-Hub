@@ -1,22 +1,27 @@
 import React from 'react';
-import { Card, CardImg, CardBody, CardText, CardTitle, Col } from 'reactstrap';
+import {
+	Card,
+	CardImg,
+	CardBody,
+	CardText,
+	CardTitle,
+	Col,
+	Button,
+} from 'reactstrap';
 
-const NFTCard = () => {
+const NFTCard = (props) => {
 	return (
 		<div className='NFT'>
 			<Card>
-				<CardImg
-					alt='Card image cap'
-					src='https://picsum.photos/318/180'
-					top
-					width='100%'
-				/>
+				<CardImg alt='Card image cap' src={props.nft.image} top width='100%' />
 				<CardBody>
-					<CardTitle tag='h5'>Card Title</CardTitle>
+					<CardTitle tag='h5'>{props.nft.name}</CardTitle>
 
 					<CardText>
-						<small className='text-muted'>Last updated 3 mins ago</small>
+						<small className='text-muted'>{props.nft.description}</small>
+						<small className='text-muted'>{props.nft.price} ETH</small>
 					</CardText>
+					<Button onClick={props.buyNFT}></Button>
 				</CardBody>
 			</Card>
 		</div>
