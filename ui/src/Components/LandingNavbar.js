@@ -25,13 +25,7 @@ function LandingNavbar() {
 	const [collapseOpen, setCollapseOpen] = React.useState(false);
 	const [collapseOut, setCollapseOut] = React.useState('');
 	const [color, setColor] = React.useState('navbar-transparent');
-	React.useEffect(() => {
-		document.body.classList.toggle('index-page');
-		// Specify how to clean up after this effect:
-		return function cleanup() {
-			document.body.classList.toggle('index-page');
-		};
-	}, []);
+
 	React.useEffect(() => {
 		window.addEventListener('scroll', changeColor);
 		return function cleanup() {
@@ -161,14 +155,10 @@ function LandingNavbar() {
 							</DropdownMenu>
 						</UncontrolledDropdown>
 						<NavItem>
-						
-							
-								<Link to='/profile' className='nav-link'>
+							<Link to='/profile' className='nav-link'>
 								<i className='tim-icons icon-single-02' />
 								Profile
-								</Link>
-							
-						
+							</Link>
 						</NavItem>
 						<NavItem>
 							<NavLink href='#pablo' onClick={(e) => e.preventDefault()}>

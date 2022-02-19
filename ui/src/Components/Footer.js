@@ -38,7 +38,7 @@ function Footer() {
 								</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink to='/profile-page' tag={Link}>
+								<NavLink to='/profile' tag={Link}>
 									Profile
 								</NavLink>
 							</NavItem>
