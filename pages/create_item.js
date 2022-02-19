@@ -27,7 +27,6 @@ export default function CreateItem() {
           progress: (prog) => console.log(`received: ${prog}`)
         }
       )
-      console.log("Added",added);
       const url = `https://gateway.ipfs.io/ipfs/${added.path}`
       setFileUrl(url)
       console.log(fileUrl)
@@ -107,10 +106,18 @@ export default function CreateItem() {
             <img className="rounded mt-4" width="350" src={fileUrl} />
           )
         }
-        {/* <img className="rounded mt-4" width="350" src="https://gateway.pinata.cloud/ipfs/QmfAvnM89JrqvdhLymbU5sXoAukEJygSLk9cJMBPTyrmxo/"/> */}
-        <button onClick={createMarket} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
-          Create Digital Asset
-        </button>
+        {fileUrl && 
+          <button onClick={createMarket} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
+            Create Digital Asset
+          </button>
+        }
+        {!fileUrl && 
+          <button disabled onClick={createMarket} className="font-bold mt-4 bg-pink-300 text-white rounded p-4 shadow-lg">
+            Uploading...
+          </button> 
+        }
+        
+        
       </div>
     </div>
   )

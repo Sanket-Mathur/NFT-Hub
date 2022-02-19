@@ -10,6 +10,9 @@ import {
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
+import SoldCard from '../components/SoldCard'
+import Card from '../components/Card'
+
 export default function CreatorDashboard() {
     const [nfts,setNfts] = useState([])
     const [sold,setSold] = useState([])
@@ -40,7 +43,10 @@ export default function CreatorDashboard() {
             image: meta.data.image,
             name: meta.data.name,
             description: meta.data.description,
+            likes: i.likes.toNumber(),
+            sold: i.sold,
           }
+          console.log(item)
           return item
         }))
         const soldItems = items.filter(i => i.sold)
@@ -57,12 +63,8 @@ export default function CreatorDashboard() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
             {
                 nfts.map((nft, i) => (
-                <div key={i} className="border shadow rounded-xl overflow-hidden">
-                    <img src={nft.image} className="rounded" />
-                    <div className="p-4 bg-black">
-                    <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
-                    </div>
-                </div>
+                    
+                    <SoldCard nft={nft} i={i}/>
                 ))
             }
             </div>
@@ -75,12 +77,7 @@ export default function CreatorDashboard() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
                     {
                     sold.map((nft, i) => (
-                        <div key={i} className="border shadow rounded-xl overflow-hidden">
-                        <img src={nft.image} className="rounded" />
-                        <div className="p-4 bg-black">
-                            <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
-                        </div>
-                        </div>
+                        <SoldCard nft={nft} i={i}/>
                     ))
                     }
                 </div>

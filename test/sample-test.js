@@ -26,8 +26,6 @@ describe("NFTMarket", function () {
 
     const [_,buyerAddress] = await ethers.getSigners()
 
-
-
     let items = await market.fetchUnsoldItems()
 
     items = await Promise.all(items.map(async i => {
