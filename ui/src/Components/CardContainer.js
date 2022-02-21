@@ -45,6 +45,7 @@ function CardContainer() {
 				return item;
 			})
 		);
+
 		setnfts(items);
 		setloadingState(false);
 	}
@@ -69,7 +70,7 @@ function CardContainer() {
 
 	return (
 		<div className='section section-typo'>
-			<img
+			{/* <img
 				alt='...'
 				className='path'
 				src={require('../assets/img/path1.png')}
@@ -78,7 +79,7 @@ function CardContainer() {
 				alt='...'
 				className='path path1'
 				src={require('../assets/img/path3.png')}
-			/>
+			/> */}
 
 			<Container className='cardcontainer'>
 				<div id='typography'>

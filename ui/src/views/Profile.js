@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import LandingNavbar from '../Components/LandingNavbar';
 
 import Footer from '../Components/Footer';
