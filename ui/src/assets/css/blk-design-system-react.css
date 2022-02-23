@@ -24248,18 +24248,15 @@ td.rdtYear:hover {
 
 /*  CSS for Create Upload Page */
 .content-center {
-	position: relative;
-	top: 50%;
-	left: 50%;
+	
 	z-index: 2;
-	-ms-transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+	margin: 0 auto;
 	text-align: center;
 	color: #ffffff;
-	padding: 0 15px;
+	padding:15px;
 	width: 100%;
-	max-width: 880px;
+	max-width: 880px;	
+	padding-top: 100px;
 }
 
 /* For Create page  */
@@ -24268,5 +24265,52 @@ td.rdtYear:hover {
 	display: block;
 	width: auto;
 	background-color: #292d61;
-	height: 70vh;
+}
+
+.upload_form {
+	display: flex;
+	flex-direction: column;
+}
+label{
+	display: flex;
+    margin-left: 10px;
+    justify-content: flex-start;
+}
+
+.nft_upload{
+	display: flex;
+    width: 100px;
+    background: var(--info);
+    padding: 10px;
+    border-radius: 0.4285rem;
+    cursor: pointer;
+    color: white;
+    align-items: center;
+    justify-content: center;
+	width: 150px;
+  
+}
+.nft_upload:hover{
+	box-shadow: 2px 2px 6px rgb(0 0 0 / 40%);
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+}
+.image_holder{
+	display: flex;
+    width: 250px;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.25);
+	border: 1px grey dashed;
+    border-radius: 0.425rem;
+    margin: 10px;
+}
+.image_holder img{
+	height:inherit;
+	width: inherit;
+	object-fit: cover;
+}
+.upload_icon::before{
+	font-size: 5rem;
 }

@@ -14,13 +14,7 @@ const CreatePageHeader = () => {
 			/>
 			<Container>
 				<div className='content-center '>
-					<div className='container_upload'>
-						<UploadForm />
-					</div>
-
-					<Button color='danger' title='Create with one Click'>
-						Create
-					</Button>
+					<UploadForm />
 				</div>
 			</Container>
 			<GotoTop />

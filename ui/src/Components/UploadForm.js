@@ -80,32 +80,64 @@ const UploadForm = () => {
 	return (
 		<div className='card' style={{ height: 'inherit' }}>
 			<div className='card-header'>
-				<h4 className='card-title'>Create</h4>
+				<h2 className='card-title text-danger my-4'>Generate your NFT</h2>
 			</div>
-			<div className='card-body'>
+			<div className='card-body upload_form'>
+				<label>Asset</label>
+				<div className='image_holder'>
+					{fileUrl ? (
+						<img src={fileUrl} alt='nft' />
+					) : (
+						<i className='tim-icons icon-cloud-upload-94 upload_icon' />
+					)}
+				</div>
+               
+				<label htmlFor='Asset' className='nft_upload'>
+					Upload NFT
+				</label>
+
 				<input
-					placeholder='Asset Name'
-					className='form-control my-4'
+					type='file'
+					name='Asset'
+					id='Asset'
+					className='mb-4'
+					onChange={onChange}
+					accept='image/*'
+					style={{ display: 'none' }}
+				/>
+				<Button className='ml-2'>Generate</Button>
+               
+				<label htmlFor='asset_name' className='mt-4'>
+					Name
+				</label>
+				<input
+					placeholder='...'
+					id='asset_name'
+					className='form-control mb-4'
 					onChange={(e) =>
 						updateFormInput({ ...formInput, name: e.target.value })
 					}
+					required={true}
 				/>
+				<label htmlFor='asset_description'>Description</label>
 				<textarea
-					placeholder='Asset Description'
-					className='form-control my-4'
+					placeholder='...'
+					className='form-control mb-4'
+					id='asset_description'
 					onChange={(e) =>
 						updateFormInput({ ...formInput, description: e.target.value })
 					}
 				/>
+				<label htmlFor='asset_price'>Price</label>
 				<input
-					placeholder='Asset Price in Eth'
-					className='form-control my-4'
+					placeholder='...'
+					className='form-control mb-4'
 					onChange={(e) =>
 						updateFormInput({ ...formInput, price: e.target.value })
 					}
+					id='asset_price'
 				/>
-				<input type='file' name='Asset' className='my-4' onChange={onChange} />
-				{fileUrl && <img className='mt-4' width='350' src={fileUrl} />}
+
 				{/* <img className="rounded mt-4" width="350" src="https://gateway.pinata.cloud/ipfs/QmfAvnM89JrqvdhLymbU5sXoAukEJygSLk9cJMBPTyrmxo/"/> */}
 				{/* <button
 					onClick={createMarket}
@@ -114,7 +146,7 @@ const UploadForm = () => {
 					Create Digital Asset
 				</button> */}
 				<Button color='danger' title='Upload your NFT' onClick={createMarket}>
-					Upload
+					Save NFT
 				</Button>
 			</div>
 		</div>
