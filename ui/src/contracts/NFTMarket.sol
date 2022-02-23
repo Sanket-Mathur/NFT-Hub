@@ -19,7 +19,7 @@ contract NFTMarket is ReentrancyGuard {
 
     struct MarketItem {
         uint itemId;
-        address nftContract;
+        address nsftContract;
         uint256 tokenId;
         address payable seller;
         address payable owner;

@@ -10,19 +10,17 @@ contract NFT is ERC721URIStorage{
     Counters.Counter private _tokenIds;
     address contractAddress;
 
-    constructor(address marketplaceAddress) ERC721("Metaverse Tokens","METT"){
-        contractAddress=marketplaceAddress;
+    constructor(address marketplaceAddress) ERC721("Nfthub Tokens","NFTHUB"){
+        contractAddress = marketplaceAddress;
     }
-
-    function createToken(string memory tokenURI) public returns (uint){
+    
+    function createToken(string memory tokenURI) public returns (uint) {
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
-        
-        _mint(msg.sender, newItemId);
+
+        _mint(msg.sender,newItemId);
         _setTokenURI(newItemId,tokenURI);
         setApprovalForAll(contractAddress,true);
         return newItemId;
     }
 }
-
-
