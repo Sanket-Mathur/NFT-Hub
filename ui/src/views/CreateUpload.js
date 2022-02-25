@@ -1,18 +1,9 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import LandingNavbar from '../Components/LandingNavbar';
 import Footer from '../Components/Footer';
 import UploadForm from 'Components/UploadForm';
-import {
-	Container,
-	TabPane,
-	NavItem,
-	NavLink,
-	Card,
-	CardBody,
-	CardHeader,
-	Nav,
-	TabContent,
-} from 'reactstrap';
+import { Container } from 'reactstrap';
+import GotoTop from 'helperFunctions/GotoTop';
 // import classnames from 'classnames';
 
 // import { create as ipfsHttpsClient } from 'ipfs-http-client';
@@ -82,6 +73,7 @@ function CreateUpload() {
 				</TabContent> */}
 
 				<Footer />
+				<GotoTop />
 			</div>
 		</div>
 	);
