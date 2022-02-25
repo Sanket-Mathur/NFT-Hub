@@ -3,7 +3,7 @@ import { React } from 'react';
 import Footer from '../Components/Footer';
 import LandingNavbar from '../Components/LandingNavbar';
 import PageHeader from '../Components/PageHeader';
-import CardContainer from '../Components/CardContainer';
+import IndexCardContainer from '../Components/IndexCardContainer';
 import ContactForm from '../Components/ContactForm';
 import GotoTop from 'helperFunctions/GotoTop';
 
@@ -15,7 +15,7 @@ function LandingPage() {
 			<div className='wrapper'>
 				<PageHeader />
 				<div className='main'>
-					<CardContainer />
+					<IndexCardContainer />
 				</div>
 				<ContactForm />
 
