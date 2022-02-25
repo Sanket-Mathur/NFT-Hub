@@ -21,7 +21,7 @@ const NFTCard = (props) => {
 						<small className='text-muted'>{props.nft.description}</small>
 						<small className='text-muted'>{props.nft.price} ETH</small>
 					</CardText>
-					<Button onClick={props.buyNFT}></Button>
+					{!props.isProfile && <Button onClick={props.buyNFT}></Button>}
 				</CardBody>
 			</Card>
 		</div>

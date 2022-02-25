@@ -91,7 +91,7 @@ const UploadForm = () => {
 						<i className='tim-icons icon-cloud-upload-94 upload_icon' />
 					)}
 				</div>
-               
+
 				<label htmlFor='Asset' className='nft_upload'>
 					Upload NFT
 				</label>
@@ -106,7 +106,7 @@ const UploadForm = () => {
 					style={{ display: 'none' }}
 				/>
 				<Button className='ml-2'>Generate</Button>
-               
+
 				<label htmlFor='asset_name' className='mt-4'>
 					Name
 				</label>
