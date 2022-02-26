@@ -12,15 +12,30 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
 import Card from '../components/Card'
 
-
 export default function Home() {
+  const [userAddress,setUserAddress] = useState('')
   const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {
     loadNFTs()
   }, [])
 
-  async function loadNFTs() {    
+  async function login(){
+    const provider = new ethers.providers.Web3Provider(window.ethereum,'any')
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner()
+    const address = await signer.getAddress()
+    return address
+  }
+
+  async function loadNFTs() {  
+    login().
+      then(address => {
+        setUserAddress(address);
+      }).catch(err => {
+        console.error(err);
+      })
+
     const provider = new ethers.providers.JsonRpcProvider()
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
@@ -43,6 +58,8 @@ export default function Home() {
       }
       return item
     }))
+    // console.log(userAddress)
+    // items.filter((i)=>{i.seller != '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'})
     setNfts(items)
     setLoadingState('loaded') 
   }
@@ -77,16 +94,16 @@ export default function Home() {
 
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
   return (
-    <div className="flex justify-center">
-      <div className="px-4" style={{ maxWidth: '1600px' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-          {
-            nfts.map((nft, i) => (
-              <Card nft={nft} i={i} onBuy={()=>buyNft(nft)} onIncrementLike={()=>incrementLike(nft)} />
-            ))
-          }
+      <div className="flex justify-center">
+        <div className="px-4" style={{ maxWidth: '1600px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+            {
+              nfts.map((nft, i) => (
+                <Card nft={nft} i={i} onBuy={()=>buyNft(nft)} onIncrementLike={()=>incrementLike(nft)} />
+              ))
+            }
+          </div>
         </div>
       </div>
-    </div>
   )
 }
