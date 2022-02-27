@@ -11,4 +11,4 @@ def index():
 
     return send_file(filename, mimetype='image/png')
 
-app.run()
+app.run(host='0.0.0.0', port='5000')
