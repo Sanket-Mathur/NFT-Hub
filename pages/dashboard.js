@@ -73,7 +73,7 @@ export default function CreatorDashboard() {
             {
                 nftSliceselector.createdNfts.map((nft, i) => (
                     
-                    <SoldCard nft={nft} i={i}/>
+                    <SoldCard nft={nft} key={i}/>
                 ))
             }
             </div>
@@ -86,7 +86,7 @@ export default function CreatorDashboard() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 pt-4">
                     {
                     nftSliceselector.soldNfts.map((nft, i) => (
-                        <SoldCard nft={nft} i={i}/>
+                        <SoldCard nft={nft} key={i}/>
                     ))
                     }
                 </div>

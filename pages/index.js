@@ -159,7 +159,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-4">
             {
               nftSliceselector.marketNfts.map((nft, i) => (
-                <Card nft={nft} i={i} onBuy={()=>buyNft(nft)} onIncrementLike={()=>incrementLike(nft)} />
+                <Card nft={nft} key={i} onBuy={()=>buyNft(nft)} onIncrementLike={()=>incrementLike(nft)} />
               ))
             }
           </div>

@@ -1,6 +1,6 @@
-const Card = ({nft,i,onBuy,onIncrementLike}) => {
+const Card = ({nft,key,onBuy,onIncrementLike}) => {
     return (
-            <div key={i} className="flex justify-center">
+            <div key={key} className="flex justify-center">
                   <div className="rounded-lg shadow-lg bg-white max-w-c345 max-h-c440 space-y-3">
                       <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                         <img className="rounded-t-lg" height="343px" width="343px" src={nft.image} alt="" />
@@ -33,7 +33,7 @@ const Card = ({nft,i,onBuy,onIncrementLike}) => {
                           <p className="text-gray-500 text-sm">{nft.likes}</p>
                           <button onClick={onIncrementLike}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 stroke-gray-500 hover:fill-pink-500 hover:stroke-pink-500" fill="none" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
                           </button>
                         </div>

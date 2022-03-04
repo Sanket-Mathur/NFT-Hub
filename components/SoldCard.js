@@ -1,6 +1,6 @@
-const SoldCard = ({nft,i}) => {
+const SoldCard = ({nft,key}) => {
     return (
-            <div key={i} className="flex justify-center">
+            <div key={key} className="flex justify-center">
                   <div className="rounded-lg shadow-lg bg-white max-w-c345 max-h-c440 space-y-3">
                     <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                       <img className="rounded-t-lg" height="343px" width="343px" src={nft.image} alt="" />

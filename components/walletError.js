@@ -16,7 +16,7 @@ const WalletError = ({onConnectWallet}) => {
     <div className="flex flex-col items-center">
       <h1 className="font-bold text-blue-600 text-5xl">There could be following issues:</h1>
       <ul className="list-disc items-left py-10">
-            <li className="text-red-500 text-xl">You don't have Metamask wallet installed.</li>
+            <li className="text-red-500 text-xl">You do not have Metamask wallet installed.</li>
             <li className="text-red-500 text-xl">You are not on Polygon Mumbai Testnet.</li>
             <li className="text-red-500 text-xl">Your wallet is not connected to current website.</li>
       </ul>

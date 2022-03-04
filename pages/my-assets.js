@@ -69,7 +69,7 @@ export default function MyAssets() {
                     <div className="p-4 bg-black">
                       <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
                     </div> */}
-                    <SoldCard nft={nft} i={i}/>
+                    <SoldCard nft={nft} key={i}/>
                   </div>
                 ))
               }
