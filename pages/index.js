@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 
+//store
+import { useDispatch,useSelector } from 'react-redux'
+import { userActions,nftActions } from '../store/store.js'
+
 import {
   nftaddress, nftmarketaddress
 } from '../config'
@@ -13,9 +17,13 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import Card from '../components/Card'
 
 export default function Home() {
-  const [userAddress,setUserAddress] = useState('')
-  const [nfts, setNfts] = useState([])
+  // const [userAddress,setUserAddress] = useState('')
+  // const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
+
+  const dispatch = useDispatch()
+  const userSliceselector = useSelector((state)=>state.userSliceReducer)
+  const nftSliceselector = useSelector((state)=>state.nftSliceReducer)
   useEffect(() => {
     loadNFTs()
   }, [])
@@ -31,12 +39,14 @@ export default function Home() {
   async function loadNFTs() {  
     login().
       then(address => {
-        setUserAddress(address);
+        // setUserAddress(address);
+        dispatch(userActions.loginUser({'address':address}))
       }).catch(err => {
         console.error(err);
       })
+    
 
-    const provider = new ethers.providers.JsonRpcProvider()
+    const provider = new ethers.providers.JsonRpcProvider("https://rpc-mumbai.matic.today")
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
     const data = await marketContract.fetchUnsoldItems()
@@ -56,11 +66,10 @@ export default function Home() {
         likes: i.likes.toNumber(),
         sold: i.sold,
       }
+      console.log(item)
       return item
     }))
-    // console.log(userAddress)
-    // items.filter((i)=>{i.seller != '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'})
-    setNfts(items)
+    dispatch(nftActions.updateMarketNfts({'nfts':items}))
     setLoadingState('loaded') 
   }
   async function buyNft(nft) {
@@ -92,13 +101,13 @@ export default function Home() {
     loadNFTs()
   }
 
-  if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
+  if (loadingState === 'loaded' && !nftSliceselector.marketNfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace {userSliceselector.address}</h1>)
   return (
       <div className="flex justify-center">
         <div className="px-4" style={{ maxWidth: '1600px' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
             {
-              nfts.map((nft, i) => (
+              nftSliceselector.marketNfts.map((nft, i) => (
                 <Card nft={nft} i={i} onBuy={()=>buyNft(nft)} onIncrementLike={()=>incrementLike(nft)} />
               ))
             }
