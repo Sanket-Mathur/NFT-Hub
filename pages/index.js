@@ -4,7 +4,7 @@ import axios from 'axios'
 import Web3Modal from "web3modal"
 
 //store
-import { useDispatch,useSelector } from 'react-redux'
+import { connect, useDispatch,useSelector } from 'react-redux'
 import { userActions,nftActions } from '../store/store.js'
 
 import {
@@ -15,6 +15,7 @@ import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
 import Card from '../components/Card'
+import WalletError from '../components/walletError.js'
 
 export default function Home() {
   // const [userAddress,setUserAddress] = useState('')
@@ -25,6 +26,7 @@ export default function Home() {
   const userSliceselector = useSelector((state)=>state.userSliceReducer)
   const nftSliceselector = useSelector((state)=>state.nftSliceReducer)
   useEffect(() => {
+    checkIfWalletIsConnected()
     loadNFTs()
   }, [])
 
@@ -36,16 +38,62 @@ export default function Home() {
     return address
   }
 
-  async function loadNFTs() {  
-    login().
+  const checkIfWalletIsConnected = async () => {
+    try{
+      const provider = new ethers.providers.Web3Provider(window.ethereum,'any')
+      if (provider) {
+        console.log('Got the ethereum obejct: ', ethereum)
+      } else {
+        console.log('No Wallet found. Connect Wallet')
+      }
+
+      const accounts = await provider.send("eth_requestAccounts", []);
+
+      if (accounts.length !== 0) {
+        console.log('Found authorized Account: ', accounts[0])
+        connectWallet()
+      
+      } else {
+        console.log('No authorized account found')
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+		
+	}
+  const connectWallet = async () => {
+		try {
+			const provider = new ethers.providers.Web3Provider(window.ethereum,'any')
+
+			if (!ethereum) {
+				console.log('Metamask not detected')
+				return
+			}
+			let chainId = await provider.send("eth_chainId",[]);
+			console.log('Connected to chain:' + chainId)
+
+			const mumbaiChainId = '0x13881'
+
+			if (chainId !== mumbaiChainId) {
+        console.log("Not connected to Mumbai testnet!")
+				return
+			}
+
+			login().
       then(address => {
         // setUserAddress(address);
         dispatch(userActions.loginUser({'address':address}))
+        dispatch(userActions.setWalletState({'walletState':'connected'}))
       }).catch(err => {
         console.error(err);
       })
-    
+		} catch (error) {
+			console.log('Error connecting to metamask', error)
+		}
+	}
 
+  async function loadNFTs() {  
     const provider = new ethers.providers.JsonRpcProvider("https://rpc-mumbai.matic.today")
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
@@ -102,10 +150,13 @@ export default function Home() {
   }
 
   if (loadingState === 'loaded' && !nftSliceselector.marketNfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace {userSliceselector.address}</h1>)
+  if (userSliceselector.walletState === 'not-connected') return (
+    <WalletError onConnectWallet={()=>connectWallet()}/>
+  )
   return (
       <div className="flex justify-center">
         <div className="px-4" style={{ maxWidth: '1600px' }}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-4">
             {
               nftSliceselector.marketNfts.map((nft, i) => (
                 <Card nft={nft} i={i} onBuy={()=>buyNft(nft)} onIncrementLike={()=>incrementLike(nft)} />

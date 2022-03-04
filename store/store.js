@@ -30,10 +30,14 @@ const userSlice = createSlice({
     name: 'usere',
     initialState:{
         address: '',
+        walletState: 'not-connected'
     },
     reducers:{
         loginUser:(state,action)=>{
             state.address = action.payload.address
+        },
+        setWalletState:(state,action)=>{
+            state.walletState = action.payload.address
         }
     }
 })

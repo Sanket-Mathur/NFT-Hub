@@ -19,8 +19,6 @@ import { userActions,nftActions } from '../store/store.js'
 
 
 export default function CreatorDashboard() {
-    const [nfts,setNfts] = useState([])
-    const [sold,setSold] = useState([])
     const [loadingState,setLoadingState] = useState('not-loaded')
 
     const dispatch= useDispatch()
@@ -29,8 +27,6 @@ export default function CreatorDashboard() {
 
     useEffect(()=>{
         loadNFTs();
-        const createdNfts = nftSliceselector.createdNfts;
-        const soldNfts = nftSliceselector.soldNfts;
     },[])
     async function loadNFTs() {    
         const web3Modal = new Web3Modal()
@@ -73,7 +69,7 @@ export default function CreatorDashboard() {
         <div>
         <div className="p-4">
             <h2 className="text-2xl py-2">Items Created</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 pt-4">
             {
                 nftSliceselector.createdNfts.map((nft, i) => (
                     
@@ -87,7 +83,7 @@ export default function CreatorDashboard() {
             Boolean(nftSliceselector.soldNfts.length) && (
                 <div>
                 <h2 className="text-2xl py-2">Items sold</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 pt-4">
                     {
                     nftSliceselector.soldNfts.map((nft, i) => (
                         <SoldCard nft={nft} i={i}/>
