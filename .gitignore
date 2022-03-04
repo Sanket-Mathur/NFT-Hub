@@ -42,3 +42,6 @@ coverage
 coverage.json
 typechain
 
+
+# Local Netlify folder
+.netlify
