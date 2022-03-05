@@ -25,7 +25,7 @@ const Card = ({nft,key,onBuy,onIncrementLike}) => {
                 
                     <div className="flex items-end px-2 py-2 bg-gray-100">
                         <div className="item w-11/12">
-                            <button onClick={onBuy}><span className="text-sm font-semibold text-blue-600 hover:text-blue-400">Bug Now</span></button>
+                            <button onClick={onBuy}><span className="text-sm font-semibold text-blue-600 hover:text-blue-400">Buy Now</span></button>
                         </div>
                       
                       <div className="item">
