@@ -1,4 +1,4 @@
-
+import Link from 'next/link'
 import { connect, useDispatch,useSelector } from 'react-redux'
 import { userActions,nftActions } from '../store/store.js'
 
