@@ -4,7 +4,7 @@
 
 ![Collection](./display/collection.jpeg)
 
-<a href="https://nft-hub-six.vercel.app/"><h3 align="center">Visit Deployment</h3></a>
+<a href="https://nft-hub-rho.vercel.app/"><h3 align="center">Visit Deployment</h3></a>
 
 ## What is NFT-Hub
 
