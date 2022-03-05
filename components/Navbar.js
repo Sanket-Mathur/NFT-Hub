@@ -1,4 +1,3 @@
-import Link  from 'next/Link'
 
 import { connect, useDispatch,useSelector } from 'react-redux'
 import { userActions,nftActions } from '../store/store.js'
@@ -12,11 +11,9 @@ const Navbar = () =>{
   return (
         <nav className="bg-white border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
   <div className="container flex flex-wrap justify-between items-center mx-auto">
-  <Link href="/">
-    <a  className="">
+
         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">NFTHUB</span>
-    </a>
-  </Link>
+
   <div className="flex md:order-2">
       <Link href="/create_item"><a type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create NFT</a></Link>
       <button data-collapse-toggle="mobile-menu-4" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" >

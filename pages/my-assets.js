@@ -13,8 +13,8 @@ import { userActions,nftActions } from '../store/store.js'
 
 import SoldCard from '../components/SoldCard'
 
-import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
-import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import NFT from './artifacts/contracts/NFT.sol/NFT.json'
+import Market from './artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
 export default function MyAssets() {
     const [nfts,setNfts] = useState([])
