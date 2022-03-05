@@ -11,7 +11,7 @@ import {
 import { useDispatch,useSelector } from 'react-redux'
 import { userActions,nftActions } from '../store/store.js'
 
-import SoldCard from '../components/SoldCard'
+import SoldCard from './components/SoldCard'
 
 import NFT from './artifacts/contracts/NFT.sol/NFT.json'
 import Market from './artifacts/contracts/NFTMarket.sol/NFTMarket.json'
