@@ -11,11 +11,11 @@ import {
   nftaddress, nftmarketaddress
 } from '../config'
 
-import NFT from './artifacts/contracts/NFT.sol/NFT.json'
-import Market from './artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
+import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
-import Card from './components/Card'
-import WalletError from './components/walletError.js'
+import Card from '../components/Card'
+import WalletError from '../components/walletError.js'
 
 export default function Home() {
   // const [userAddress,setUserAddress] = useState('')

@@ -7,11 +7,11 @@ import {
     nftmarketaddress,nftaddress
 } from '../config'
 
-import NFT from './artifacts/contracts/NFT.sol/NFT.json'
-import Market from './artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
+import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
-import SoldCard from './components/SoldCard'
-import Card from './components/Card'
+import SoldCard from '../components/SoldCard'
+import Card from '../components/Card'
 
 //store
 import { useDispatch,useSelector } from 'react-redux'
